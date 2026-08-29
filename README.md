@@ -2,6 +2,21 @@
 
 A collection of small, focused Python examples for learning how LangChain connects to hosted and local language models. The repository demonstrates chat models, text-completion models, embeddings, and a simple semantic-similarity workflow using OpenAI, Anthropic, Google Gemini, and Hugging Face.
 
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
+  <a href="https://python.langchain.com/"><img src="https://img.shields.io/badge/LangChain-Learning_Lab-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain Learning Lab"></a>
+  <a href="https://platform.openai.com/docs"><img src="https://img.shields.io/badge/OpenAI-Models-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI models"></a>
+  <a href="https://docs.anthropic.com/"><img src="https://img.shields.io/badge/Anthropic-Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic Claude"></a>
+</p>
+
+<p align="center">
+  <a href="https://ai.google.dev/gemini-api/docs"><img src="https://img.shields.io/badge/Google-Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Google Gemini"></a>
+  <a href="https://huggingface.co/docs"><img src="https://img.shields.io/badge/Hugging_Face-Models-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face models"></a>
+  <img src="https://img.shields.io/badge/Status-Educational_Project-F2C94C?style=flat-square" alt="Educational project">
+  <a href="https://github.com/Danyal-0276/langchain-learning/commits/main"><img src="https://img.shields.io/github/last-commit/Danyal-0276/langchain-learning?style=flat-square" alt="Last commit"></a>
+  <a href="https://github.com/Danyal-0276/langchain-learning"><img src="https://img.shields.io/github/repo-size/Danyal-0276/langchain-learning?style=flat-square" alt="Repository size"></a>
+</p>
+
 > This is an educational sandbox: each script is standalone, prints its result to the terminal, and is intended to be read and run independently.
 
 ## What this project demonstrates
