@@ -88,15 +88,7 @@ A collection of small, focused Python examples for learning how LangChain connec
    pip install -r requirements.txt
    ```
 
-4. Install the optional packages required by specific examples:
-
-   ```bash
-   pip install langchain-anthropic sentence-transformers
-   ```
-
-   `langchain-anthropic` is required by the Anthropic example. `sentence-transformers` is required by the local Hugging Face embedding examples.
-
-5. Create a `.env` file in the repository root and add only the credentials you need:
+4. Create a `.env` file in the repository root and add only the credentials you need:
 
    ```dotenv
    OPENAI_API_KEY=your_openai_api_key
