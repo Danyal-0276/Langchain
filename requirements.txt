@@ -1,0 +1,48 @@
+# ==============================
+# LangChain Core & Framework
+# ==============================
+
+# Main LangChain framework
+langchain
+
+# Core abstractions used by LangChain
+langchain-core
+
+# OpenAI integration for LangChain
+langchain-openai
+
+# Google Gemini integration for LangChain
+langchain-google-genai
+
+
+# ==============================
+# Hugging Face
+# ==============================
+
+# Hugging Face integration with LangChain
+langchain-huggingface
+
+# Hugging Face Transformers library
+transformers
+
+# Hugging Face Hub - download and manage models
+huggingface-hub
+
+
+# ==============================
+# Environment & Configuration
+# ==============================
+
+# Load API keys and environment variables from .env
+python-dotenv
+
+
+# ==============================
+# Machine Learning & Numerical Computing
+# ==============================
+
+# Numerical computing and arrays
+numpy
+
+# Traditional machine learning algorithms
+scikit-learn
