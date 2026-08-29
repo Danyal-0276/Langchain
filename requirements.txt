@@ -47,6 +47,9 @@ python-dotenv
 # Machine Learning & Numerical Computing
 # ==============================
 
+# PyTorch backend for local Hugging Face models
+torch
+
 # Numerical computing and arrays
 numpy
 
