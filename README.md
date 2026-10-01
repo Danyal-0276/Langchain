@@ -1,154 +1,255 @@
-# LangChain Learning Lab
+# 🦜🔗 LangChain Masterclass & Learning Lab
 
-A collection of small, focused Python examples for learning how LangChain connects to hosted and local language models. The repository demonstrates chat models, text-completion models, embeddings, and a simple semantic-similarity workflow using OpenAI, Anthropic, Google Gemini, and Hugging Face.
+An end-to-end collection of hands-on Python modules, interactive Streamlit applications, and standalone labs for mastering **LangChain**, **Prompt Engineering**, **Structured Output Extraction**, and **Multi-Provider LLM Integrations** (OpenAI, Anthropic, Google Gemini, Hugging Face, and Ollama).
+
+---
 
 <p align="center">
   <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.10+"></a>
-  <a href="https://python.langchain.com/"><img src="https://img.shields.io/badge/LangChain-Learning_Lab-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain Learning Lab"></a>
-  <a href="https://platform.openai.com/docs"><img src="https://img.shields.io/badge/OpenAI-Models-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI models"></a>
-  <a href="https://docs.anthropic.com/"><img src="https://img.shields.io/badge/Anthropic-Claude-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Anthropic Claude"></a>
+  <a href="https://python.langchain.com/"><img src="https://img.shields.io/badge/LangChain-v0.3%2B-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white" alt="LangChain"></a>
+  <a href="https://ollama.com/"><img src="https://img.shields.io/badge/Ollama-Qwen_2.5-000000?style=for-the-badge&logo=ollama&logoColor=white" alt="Ollama"></a>
+  <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"></a>
+  <a href="https://docs.pydantic.dev/"><img src="https://img.shields.io/badge/Pydantic-v2-E92063?style=for-the-badge&logo=pydantic&logoColor=white" alt="Pydantic"></a>
 </p>
 
 <p align="center">
-  <a href="https://ai.google.dev/gemini-api/docs"><img src="https://img.shields.io/badge/Google-Gemini-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Google Gemini"></a>
-  <a href="https://huggingface.co/docs"><img src="https://img.shields.io/badge/Hugging_Face-Models-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face models"></a>
-  <img src="https://img.shields.io/badge/Status-Educational_Project-F2C94C?style=flat-square" alt="Educational project">
-  <a href="https://github.com/Danyal-0276/langchain-learning/commits/main"><img src="https://img.shields.io/github/last-commit/Danyal-0276/langchain-learning?style=flat-square" alt="Last commit"></a>
-  <a href="https://github.com/Danyal-0276/langchain-learning"><img src="https://img.shields.io/github/repo-size/Danyal-0276/langchain-learning?style=flat-square" alt="Repository size"></a>
+  <a href="https://platform.openai.com/docs"><img src="https://img.shields.io/badge/OpenAI-GPT--4o-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI"></a>
+  <a href="https://docs.anthropic.com/"><img src="https://img.shields.io/badge/Anthropic-Claude_3.5-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Anthropic"></a>
+  <a href="https://ai.google.dev/gemini-api/docs"><img src="https://img.shields.io/badge/Google-Gemini_1.5-8E75B2?style=flat-square&logo=googlegemini&logoColor=white" alt="Google Gemini"></a>
+  <a href="https://huggingface.co/docs"><img src="https://img.shields.io/badge/Hugging_Face-Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face"></a>
+  <img src="https://img.shields.io/badge/Status-Active_Lab-2EA44F?style=flat-square" alt="Status">
 </p>
 
-> This is an educational sandbox: each script is standalone, prints its result to the terminal, and is intended to be read and run independently.
+---
 
-## What this project demonstrates
+## 📌 Table of Contents
 
-- Calling chat models from OpenAI, Anthropic, Google Gemini, and Hugging Face
-- Running a small Hugging Face chat model locally
-- Calling a hosted Hugging Face model through an inference endpoint
-- Creating query and document embeddings with OpenAI and Hugging Face
-- Ranking documents against a query with cosine similarity
-- Loading provider credentials from a local `.env` file
+- [Overview](#-overview)
+- [Key Features & Architecture](#-key-features--architecture)
+- [Repository Structure](#-repository-structure)
+- [Prerequisites](#-prerequisites)
+- [Installation & Environment Setup](#-installation--environment-setup)
+- [Module Deep-Dives & Usage](#-module-deep-dives--usage)
+  - [1. Langchain Models (`/Langchain models`)](#1-langchain-models-langchain-models)
+  - [2. Prompt Engineering & UI (`/Prompts`)](#2-prompt-engineering--ui-prompts)
+  - [3. Structured Output & Schemas (`/Structured output`)](#3-structured-output--schemas-structured-output)
+- [Running Interactive Streamlit Apps](#-running-interactive-streamlit-apps)
+- [Security & Credentials](#-security--credentials)
+- [License & Contributions](#-license--contributions)
 
-## Project structure
+---
+
+## 💡 Overview
+
+This repository serves as a **complete hands-on curriculum and practical sandbox** for building modern AI applications with **LangChain**. It bridges the gap between cloud-hosted foundation models (OpenAI GPT, Anthropic Claude, Google Gemini) and privacy-first local LLMs (Ollama Qwen 2.5, Hugging Face TinyLlama).
+
+Whether you are implementing semantic document similarity search, building interactive Streamlit prompt interfaces, creating conversational CLI bots, or enforcing strict schema parsing with Pydantic and JSON Schema, this repository provides copy-pasteable, production-ready patterns.
+
+---
+
+## 🔥 Key Features & Architecture
+
+| Module | Core Concepts Demonstrated | Technologies Used |
+| :--- | :--- | :--- |
+| **Model Integrations** | Multi-provider Chat Models, Text Generation, Local Pipelines, Document Embeddings, Cosine Similarity ranking | LangChain Core, OpenAI API, Anthropic, Google Gemini, Hugging Face Hub / Transformers, PyTorch |
+| **Prompt Engineering** | `PromptTemplate`, `ChatPromptTemplate`, `MessagesPlaceholder`, Prompt Serialization (`JSON`), CLI Chatbot, Web UI | Ollama (`qwen2.5:3b`), Streamlit, `python-dotenv` |
+| **Structured Output** | `.with_structured_output()`, Pydantic V2 Models, TypedDict Annotations, Raw JSON Schema validation | Pydantic, TypedDict, Ollama, TinyLlama |
+
+---
+
+## 📂 Repository Structure
 
 ```text
 .
-|-- ChatModels/
-|   |-- chat_model_openai.py          # OpenAI chat example
-|   |-- chatmodel_anthropic.py        # Anthropic Claude chat example
-|   |-- chatmodel_google.py           # Google Gemini chat example
-|   |-- chatmodel_hf_local.py         # Local Hugging Face pipeline
-|   `-- chatmodel_huggingface_api.py  # Hosted Hugging Face endpoint
-|-- EmbeddedModels/
-|   |-- doc_similarity.py             # Semantic search with cosine similarity
-|   |-- embedding_hf.py               # Hugging Face document embeddings
-|   |-- embedding_openai_query.py     # OpenAI query embedding
-|   `-- embeddings_openai_docs.py     # OpenAI document embeddings
-|-- LLMs/
-|   `-- _llm_demo.py                  # OpenAI text-completion example
-|-- requirements.txt
-`-- test.py                           # Prints the installed LangChain version
+├── Langchain models/               # Cloud & Local Model Integrations
+│   ├── ChatModels/
+│   │   ├── chat_model_openai.py          # OpenAI GPT Chat Completion wrapper
+│   │   ├── chatmodel_anthropic.py        # Anthropic Claude 3 wrapper
+│   │   ├── chatmodel_google.py           # Google Gemini Generative AI integration
+│   │   ├── chatmodel_hf_local.py         # Local Qwen Hugging Face pipeline execution
+│   │   └── chatmodel_huggingface_api.py  # Hosted Hugging Face Inference API endpoint
+│   ├── EmbeddedModels/
+│   │   ├── doc_similarity.py             # Semantic document search using Cosine Similarity
+│   │   ├── embedding_hf.py               # Local sentence-transformers embeddings (all-MiniLM-L6-v2)
+│   │   ├── embedding_openai_query.py     # Single-query OpenAI vector embedding generator
+│   │   └── embeddings_openai_docs.py     # Batch document vector embedding with OpenAI
+│   └── LLMs/
+│       └── _llm_demo.py                  # Legacy instruct/completion text model wrapper
+│
+├── Prompts/                        # Prompt Design, Serialization & Applications
+│   ├── chat_prompt_template.py           # Domain/Topic template formatting
+│   ├── chatbot.py                        # Terminal CLI Chatbot with persistent chat history
+│   ├── message_placeholder.py            # Dynamic history injection via MessagesPlaceholder
+│   ├── messages.py                       # System, Human, and AI message object manipulation
+│   ├── prompt_gen.py                     # Programmatic template generator saving to template.json
+│   ├── prompt_ui.py                      # Interactive Streamlit Web App for Research Paper summarization
+│   └── template.json                     # Serialized JSON PromptTemplate
+│
+├── Structured output/              # Schema-Driven LLM Data Extraction
+│   ├── json_schema.json                  # Reusable JSON Schema definition for product reviews
+│   ├── pydantic_demo.py                  # Standalone Pydantic field validation & JSON serialization
+│   ├── typedict_demo.py                  # Python TypedDict comparison matrix
+│   ├── with_structered_output_llama.py   # Structured extraction with local TinyLlama pipeline
+│   ├── with_structered_output_pydantic.py# Sentiment & theme extraction returning Pydantic objects
+│   ├── with_structered_output_typedict.py# Structured output returning Python dictionaries
+│   └── with_structured_output_json.py    # Schema enforcement via raw JSON Schema dicts
+│
+├── .gitignore                      # Git exclusion rules for API keys, cache, virtualenvs
+├── requirements.txt                # Unified project dependencies
+└── README.md                       # Comprehensive repository documentation
 ```
 
-## Requirements
+---
 
-- Python 3.10 or newer
-- Internet access for hosted model examples
-- API credentials for the providers you want to use
-- Enough memory and disk space to download local Hugging Face models
+## ⚡ Prerequisites
 
-## Setup
+- **Python**: `3.10` or higher
+- **Ollama** (Optional for local execution): Installed and running locally with `qwen2.5:3b` pulled:
+  ```bash
+  ollama pull qwen2.5:3b
+  ```
+- **Hardware**: Dedicated GPU recommended for running local PyTorch / Hugging Face models (`TinyLlama-1.1B`).
 
-1. Clone the repository and enter it:
+---
 
-   ```bash
-   git clone https://github.com/Danyal-0276/langchain-learning.git
-   cd langchain-learning
-   ```
+## ⚙️ Installation & Environment Setup
 
-2. Create and activate a virtual environment:
-
-   **Windows PowerShell**
-
-   ```powershell
-   python -m venv venv
-   .\venv\Scripts\Activate.ps1
-   ```
-
-   **macOS/Linux**
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install the shared dependencies:
-
-   ```bash
-   python -m pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
-
-4. Create a `.env` file in the repository root and add only the credentials you need:
-
-   ```dotenv
-   OPENAI_API_KEY=your_openai_api_key
-   ANTHROPIC_API_KEY=your_anthropic_api_key
-   GOOGLE_API_KEY=your_google_api_key
-   HUGGINGFACEHUB_API_TOKEN=your_hugging_face_token
-   ```
-
-   The `.env` file is ignored by Git. Never commit real API keys.
-
-## Running the examples
-
-Run a script from the repository root. For example:
+### 1. Clone the Repository
 
 ```bash
-python ChatModels/chat_model_openai.py
-python ChatModels/chatmodel_google.py
-python ChatModels/chatmodel_hf_local.py
-python EmbeddedModels/doc_similarity.py
+git clone https://github.com/Danyal-0276/langchain-learning.git
+cd langchain-learning
 ```
 
-To confirm which LangChain version is installed:
+### 2. Set Up Virtual Environment
+
+- **Windows (PowerShell)**:
+  ```powershell
+  python -m venv venv
+  .\venv\Scripts\Activate.ps1
+  ```
+
+- **macOS / Linux**:
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+### 3. Install Dependencies
 
 ```bash
-python test.py
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 ```
 
-## Example guide
+### 4. Configure Environment Variables
 
-### Chat models
+Create a `.env` file in the root directory (or inside subdirectories if running modularly) with your credentials:
 
-- `chat_model_openai.py` sends a short prompt to an OpenAI chat model.
-- `chatmodel_anthropic.py` invokes an Anthropic Claude model.
-- `chatmodel_google.py` invokes a Google Gemini model.
-- `chatmodel_huggingface_api.py` wraps a hosted Hugging Face endpoint as a chat model.
-- `chatmodel_hf_local.py` downloads and runs a small Qwen model locally.
+```dotenv
+# Cloud Provider API Keys (Optional based on which examples you run)
+OPENAI_API_KEY="sk-proj-your-openai-key"
+ANTHROPIC_API_KEY="sk-ant-your-anthropic-key"
+GOOGLE_API_KEY="AIzaSy-your-google-api-key"
+HUGGINGFACEHUB_API_TOKEN="hf_your_huggingface_token"
+```
 
-### Embeddings and similarity
+> 🔒 **Security Notice**: `.env` is ignored by `.gitignore`. Never commit API keys to public repositories.
 
-- `embedding_openai_query.py` creates one 36-dimensional OpenAI query embedding.
-- `embeddings_openai_docs.py` embeds a list of documents with OpenAI.
-- `embedding_hf.py` embeds multiple sentences with `all-MiniLM-L6-v2`.
-- `doc_similarity.py` embeds a query and document collection, computes cosine-similarity scores, and prints the closest document.
+---
 
-### Text completion
+## 🚀 Module Deep-Dives & Usage
 
-- `_llm_demo.py` is a basic OpenAI text-completion example using an instruct model.
+### 1. Langchain Models (`/Langchain models`)
 
-## Notes and limitations
+Demonstrates how LangChain provides a unified interface across cloud APIs and local inference engines.
 
-- Model availability and provider model IDs can change. If an example reports that a model is unavailable, replace the model name with one enabled for your account.
-- Hosted examples can incur provider charges.
-- The first local Hugging Face run downloads model files and can take longer than later runs.
-- These scripts are learning examples, not a production application. They currently have no automated test suite, command-line interface, or shared configuration layer.
-- `requirements.txt` is not version-pinned, so installs may change as upstream packages release new versions.
+* **Hosted Chat Models**:
+  ```bash
+  python "Langchain models/ChatModels/chat_model_openai.py"
+  python "Langchain models/ChatModels/chatmodel_anthropic.py"
+  python "Langchain models/ChatModels/chatmodel_google.py"
+  ```
+* **Local Hugging Face Models**:
+  ```bash
+  python "Langchain models/ChatModels/chatmodel_hf_local.py"
+  ```
+* **Semantic Document Similarity**:
+  Computes high-dimensional vector embeddings and calculates cosine similarity between user queries and text corpora:
+  ```bash
+  python "Langchain models/EmbeddedModels/doc_similarity.py"
+  ```
 
-## Security
+---
 
-Keep credentials in `.env`, review provider usage limits, and avoid sending sensitive data to hosted models. If a credential is accidentally committed, revoke it immediately and remove it from the repository history.
+### 2. Prompt Engineering & UI (`/Prompts`)
 
-## License
+Focuses on building structured, reusable prompts and interactive user interfaces.
 
-No license file is currently included. Unless a license is added, the repository's code remains under the default copyright restrictions.
+* **CLI Interactive Chatbot**:
+  Maintains stateful chat history in a loop using Ollama (`qwen2.5:3b`):
+  ```bash
+  python Prompts/chatbot.py
+  ```
+* **Prompt Serialization**:
+  Export prompt definitions to JSON and reload them dynamically:
+  ```bash
+  python Prompts/prompt_gen.py
+  python Prompts/message_placeholder.py
+  ```
+
+---
+
+### 3. Structured Output & Schemas (`/Structured output`)
+
+Learn how to enforce reliable, machine-readable responses (JSON, dictionaries, Pydantic objects) from LLMs.
+
+* **Pydantic Model Extraction**:
+  Passes a Pydantic schema to `.with_structured_output()` to extract key themes, sentiment (positive/negative/neutral), pros, cons, and reviewer names from unstructured text:
+  ```bash
+  python "Structured output/with_structered_output_pydantic.py"
+  ```
+* **TypedDict & JSON Schema Parsing**:
+  ```bash
+  python "Structured output/with_structered_output_typedict.py"
+  python "Structured output/with_structured_output_json.py"
+  ```
+* **Local TinyLlama Structured Output**:
+  Executes structured data extraction entirely offline using Hugging Face pipelines:
+  ```bash
+  python "Structured output/with_structered_output_llama.py"
+  ```
+
+---
+
+## 🖥️ Running Interactive Streamlit Apps
+
+Launch the Research Paper Summarizer web app built with Streamlit and LangChain:
+
+```bash
+streamlit run Prompts/prompt_ui.py
+```
+
+Features:
+- Select from benchmark AI papers (*Attention Is All You Need*, *GPT-3*, *BERT*, *Diffusion Models*).
+- Select target style (*Beginner-Friendly*, *Technical*, *Mathematical*, *Code-Oriented*).
+- Choose output length and generate structured summaries powered by Ollama.
+
+---
+
+## 🔐 Security & Credentials
+
+- Keep all secret keys inside `.env`.
+- Ensure provider quotas and usage spending limits are configured in OpenAI/Anthropic dashboards.
+- For local privacy-sensitive workloads, rely on the `Ollama` or `transformers` local pipelines provided in the repository.
+
+---
+
+## 📄 License & Contributions
+
+Distributed under the **MIT License**. Contributions, bug reports, and pull requests are welcome!
+
+```text
+Crafted with ❤️ for the AI & Open-Source Community.
+```
+
