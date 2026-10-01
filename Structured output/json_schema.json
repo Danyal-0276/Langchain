@@ -1,0 +1,85 @@
+[
+    {
+        "title": "Product Review Analysis",
+        "description": "A schema for analyzing product reviews, extracting key themes, summarizing the review, determining sentiment, and identifying pros and cons.",
+        "type": "object",
+        "properties": {
+            "key_themes": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of key themes or topics mentioned in the review."
+            },
+            "summary": {
+                "type": "string",
+                "description": "A concise summary of the review."
+            },
+            "sentiment": {
+                "type": "string",
+                "enum": [
+                    "positive",
+                    "negative",
+                    "neutral"
+                ],
+                "description": "The overall sentiment of the review."
+            },
+            "pros": {
+                "type": [
+                    "array",
+                    "null"
+                ],
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of positive aspects mentioned in the review, if any."
+            },
+            "cons": {
+                "type": [
+                    "array",
+                    "null"
+                ],
+                "items": {
+                    "type": "string"
+                },
+                "description": "A list of negative aspects mentioned in the review, if any."
+            },
+            "name": {
+                "type": [
+                    "string",
+                    "null"
+                ],
+                "description": "(Optional) The name of the reviewer, if available."
+            }
+        },
+        "required": [
+            "key_themes",
+            "summary",
+            "sentiment"
+        ]
+    },
+    {
+        "title": "student",
+        "description": "A schema for student information, including name, age, and grade.",
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "The name of the student."
+            },
+            "age": {
+                "type": "integer",
+                "description": "The age of the student."
+            },
+            "grade": {
+                "type": "string",
+                "description": "The grade of the student."
+            }
+        },
+        "required": [
+            "name",
+            "age",
+            "grade"
+        ]
+    }
+]
