@@ -32,3 +32,5 @@ print(
 )  # Output: The hardware is good, but the software is bloated and slow with unnecessary pre-installed apps. The battery life is disappointing, leading to overall dissatisfaction with the product.
 print(result["sentiment"])  # Output: negative
 print(result["name"])  # Output: None
+
+
