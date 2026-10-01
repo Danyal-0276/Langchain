@@ -1,6 +1,6 @@
 from langchain_ollama import ChatOllama
 from dotenv import load_dotenv
-from typing import TypedDict
+from typing import TypedDict, Annotated
 
 load_dotenv()
 
@@ -8,8 +8,11 @@ model = ChatOllama(model="qwen2.5:3b")
 
 
 class Review(TypedDict):
-    summary: str
-    sentiment: str
+    summary: Annotated[str, "A brief summary of the review"]
+    sentiment: Annotated[
+        str,
+        "Return sentiment of the review, either 'positive', 'negative', or 'neutral'",
+    ]
 
 
 structured_model = model.with_structured_output(Review)
